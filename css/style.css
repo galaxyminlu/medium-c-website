@@ -469,8 +469,32 @@ p {
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
   gap: 3rem;
-  /* Items stretch to the row's full height (the default), so the tag list below
-     can be spread out with justify-content to match the text column's top and bottom */
+  align-items: start;
+}
+
+/* Small dot-bullet list for the intro copy, matching the package card lists */
+.who-we-work-with__list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.who-we-work-with__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--colour-black);
+}
+
+.who-we-work-with__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--colour-primary);
 }
 
 /* ---- Industry / audience strip ---- */
@@ -486,11 +510,7 @@ p {
 .audience-list--stacked {
   flex-direction: column;
   align-items: stretch;
-  justify-content: space-between;
   gap: 0.6rem;
-  /* Fills the grid cell (matching the text column's height), then space-between spreads
-     the tags so the first and last line up with the top and bottom of that text */
-  height: 100%;
 }
 
 .audience-list li {
