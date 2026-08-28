@@ -546,6 +546,81 @@ p {
   color: var(--colour-white);
 }
 
+/* ---- Package cards (home teaser + Services full cards) ----
+   Built on top of .card so they match the capabilities grid; .package-card
+   just adds the flex layout and the "featured" (Core) treatment. */
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.package-card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--colour-primary);
+  color: var(--colour-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.package-card__name {
+  margin-bottom: 0.5rem;
+}
+
+.package-card__tagline {
+  color: var(--colour-secondary);
+}
+
+.package-card__list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.package-card__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.75rem;
+  color: var(--colour-black);
+}
+
+.package-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--colour-primary);
+}
+
+.package-card__cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Core: the "most popular" tier gets a subtle blue-tinted lift above its siblings */
+.package-card--featured {
+  border-color: var(--colour-primary);
+  background-color: #EEF2F9;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-8px);
+}
+
 /* ---- Founder / "person behind" band ---- */
 .founder-band__inner {
   display: grid;
@@ -839,8 +914,14 @@ p {
   .founder-band__inner,
   .founder-section__inner,
   .contact-layout,
-  .who-we-work-with {
+  .who-we-work-with,
+  .package-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* No room for the "raised" featured card once everything's stacked in one column */
+  .package-card--featured {
+    transform: none;
   }
 
   .hero__image,
