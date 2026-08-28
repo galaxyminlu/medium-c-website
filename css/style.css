@@ -466,7 +466,8 @@ p {
 
 /* ---- Who we work with: single-column intro, capped to a readable line length ---- */
 .who-we-work-with {
-  max-width: 72ch;
+  /* Full container width rather than a capped reading measure, so the copy
+     wraps to fewer lines and the section takes up less vertical space */
 }
 
 /* Small dot-bullet list for the intro copy, matching the package card lists */
