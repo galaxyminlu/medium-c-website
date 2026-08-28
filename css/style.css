@@ -581,6 +581,7 @@ p {
 
 .package-card__tagline {
   color: var(--colour-secondary);
+  font-style: italic;
 }
 
 .package-card__list {
@@ -616,8 +617,9 @@ p {
 /* Core: the "most popular" tier gets a subtle blue-tinted lift above its siblings */
 .package-card--featured {
   border-color: var(--colour-primary);
+  border-width: 2px;
   background-color: #EEF2F9;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 12px 28px rgba(47, 93, 170, 0.18);
   transform: translateY(-8px);
 }
 
@@ -914,14 +916,8 @@ p {
   .founder-band__inner,
   .founder-section__inner,
   .contact-layout,
-  .who-we-work-with,
-  .package-grid {
+  .who-we-work-with {
     grid-template-columns: 1fr;
-  }
-
-  /* No room for the "raised" featured card once everything's stacked in one column */
-  .package-card--featured {
-    transform: none;
   }
 
   .hero__image,
@@ -936,6 +932,18 @@ p {
 
   .site-footer__inner {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Packages: three columns down to a single stacked column below ~768px */
+@media (max-width: 768px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* No room for the "raised" featured card once everything's stacked in one column */
+  .package-card--featured {
+    transform: none;
   }
 }
 
