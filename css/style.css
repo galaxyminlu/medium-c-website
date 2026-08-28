@@ -507,10 +507,13 @@ p {
   padding: 0;
 }
 
+/* Groups the tags at the top of the right column instead of the horizontal
+   strip .audience-list is elsewhere: wraps into rows, each pill sized to its
+   own text (not stretched to the column width), tightly grouped together. */
 .audience-list--stacked {
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.6rem;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.5rem;
 }
 
 .audience-list li {
