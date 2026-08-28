@@ -464,12 +464,9 @@ p {
   max-width: 680px;
 }
 
-/* ---- Who we work with: intro text beside a stacked list of tags ---- */
+/* ---- Who we work with: single-column intro, capped to a readable line length ---- */
 .who-we-work-with {
-  display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 3rem;
-  align-items: start;
+  max-width: 72ch;
 }
 
 /* Small dot-bullet list for the intro copy, matching the package card lists */
@@ -497,23 +494,15 @@ p {
   background-color: var(--colour-primary);
 }
 
-/* ---- Industry / audience strip ---- */
+/* ---- Industry / audience strip: horizontal wrapping row of pills, each
+   sized to its own text, sitting below the Who We Work With copy ---- */
 .audience-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   list-style: none;
-  margin: 0;
+  margin: 2rem 0 0;
   padding: 0;
-}
-
-/* Groups the tags at the top of the right column instead of the horizontal
-   strip .audience-list is elsewhere: wraps into rows, each pill sized to its
-   own text (not stretched to the column width), tightly grouped together. */
-.audience-list--stacked {
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 0.5rem;
 }
 
 .audience-list li {
@@ -938,8 +927,7 @@ p {
   .hero__inner,
   .founder-band__inner,
   .founder-section__inner,
-  .contact-layout,
-  .who-we-work-with {
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 
