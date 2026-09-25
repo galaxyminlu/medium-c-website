@@ -158,6 +158,33 @@ p {
   margin: 0 0 2.5rem;
 }
 
+/* ---- Benefit grid: a lighter, editorial alternative to .card, used where a
+   boxed/bordered treatment would feel too close to the services grid ---- */
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.benefit-grid__item {
+  border-left: 1px solid var(--colour-border);
+  padding-left: 1.75rem;
+}
+
+.benefit-grid__item:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.benefit-grid__item h3 {
+  margin-bottom: 0.5rem;
+}
+
+.benefit-grid__item p {
+  color: var(--colour-secondary);
+  margin: 0;
+}
+
 /* ---- Layout helpers -------------------------------------------------- */
 .container {
   width: 100%;
@@ -468,31 +495,6 @@ p {
 .who-we-work-with {
   /* Full container width rather than a capped reading measure, so the copy
      wraps to fewer lines and the section takes up less vertical space */
-}
-
-/* Small dot-bullet list for the intro copy, matching the package card lists */
-.who-we-work-with__list {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-}
-
-.who-we-work-with__list li {
-  position: relative;
-  padding-left: 1.4rem;
-  margin-bottom: 0.6rem;
-  color: var(--colour-black);
-}
-
-.who-we-work-with__list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--colour-primary);
 }
 
 /* ---- Industry / audience strip: horizontal wrapping row of pills, each
@@ -806,6 +808,26 @@ p {
   color: var(--colour-primary);
 }
 
+/* ---- Selected results band (home page) ---- */
+.results-band {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.results-band__number {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--colour-primary);
+  margin: 0 0 0.5rem;
+}
+
+.results-band__label {
+  color: var(--colour-secondary);
+  margin: 0;
+}
+
 /* ---- CTA band ---- */
 .cta-band {
   background-color: var(--colour-primary);
@@ -957,6 +979,24 @@ p {
   .package-card--featured {
     transform: none;
   }
+
+  /* Benefit grid: side-by-side left dividers become top dividers when stacked */
+  .benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .benefit-grid__item {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--colour-border);
+    padding-top: 1.5rem;
+  }
+
+  .benefit-grid__item:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1040,5 +1080,10 @@ p {
 
   .case-study {
     padding: 1.5rem;
+  }
+
+  .results-band {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
